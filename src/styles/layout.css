@@ -1,0 +1,19 @@
+.main-layout {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-layout-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid #222;
+}
+
+.main-layout-header .header-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
