@@ -15,6 +15,8 @@ dist-ssr
 # Yarn Berry
 .yarn/cache 
 .yarn/unplugged
+.yarn/sdks 
+.vscode
 *.gz
 
 # Editor directories and files
