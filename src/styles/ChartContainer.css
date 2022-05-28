@@ -1,0 +1,10 @@
+.chart-container {
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+}
+
+.chart-container .chart-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
