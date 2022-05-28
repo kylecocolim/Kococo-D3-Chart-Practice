@@ -1,2 +1,1 @@
-# React-D3-Practice
-D3 + Typescript + React.js
+# D3 React Practice
