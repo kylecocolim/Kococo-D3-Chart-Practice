@@ -9,7 +9,7 @@ export type ChartDataType = {
     yDomain: string[] | number[] | Date[]
 }
 export type YFinanceStockDatasetType = {
-    Date: string
+    Date: Date
     Open: number
     High: number
     Low: number
