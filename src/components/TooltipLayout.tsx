@@ -24,13 +24,25 @@ export default function TooltipLayout({ svg, xScale, yScale, dataset, children }
         y = clientY - top
         return { x, y }
     }
+    function tooltipStyle() {
+        if (toolTipRef.current) {
+            Object.assign(toolTipRef.current.style, {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                visibility: 'hidden',
+                transition: 'transform .1s',
+            })
+        }
+    }
     function handleMouseMove(event: React.MouseEvent<HTMLElement>) {
         if (!svg.current || !toolTipRef.current) return
         const { x, y } = getCurrentPosition(event)
         if (x > 0) {
             const { val, index } = xScale.invert(x)
-            if (index >= dataset.length) {
+            if (index >= dataset.length - 1) {
                 setDisplayData(null)
+                return
             }
             const { high } = dataset.history[index]
             const left = window.innerWidth - x > 300 ? x + 60 : x - 220
@@ -59,6 +71,9 @@ export default function TooltipLayout({ svg, xScale, yScale, dataset, children }
             onMouseMove={_.throttle((event) => {
                 handleMouseMove(event)
             }, 100)}
+            onMouseLeave={(event) => {
+                tooltipStyle()
+            }}
         >
             <div ref={toolTipRef} className="tooltip">
                 {displayData &&

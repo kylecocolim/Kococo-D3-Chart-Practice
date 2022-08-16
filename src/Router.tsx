@@ -1,15 +1,15 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import App from './App'
-import CandleStickChart from './pages/CandleStickChart'
+import Company from './pages/Company'
 import NotFound from './pages/NotFound'
 export default function Router() {
     return (
-        <HashRouter>
+        <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />}></Route>
-                <Route path="/candle" element={<CandleStickChart />}></Route>
+                <Route path="/company/:ticker" element={<Company />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
             </Routes>
-        </HashRouter>
+        </BrowserRouter>
     )
 }

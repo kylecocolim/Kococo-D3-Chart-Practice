@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
-import { defaultMargin, defaultPadding } from '../types'
+import { defaultMargin, defaultPadding } from '../../types'
 type AxisType = {
     scale: d3.ScaleBand<any> | d3.ScaleLinear<any, any, any> | any
     width: number

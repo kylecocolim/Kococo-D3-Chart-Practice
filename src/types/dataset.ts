@@ -21,5 +21,9 @@ export type CompanyType = {
 }
 export type StockAPIType = {
     history: YFinanceStockDatasetType[],
-    company: CompanyType
+    company: CompanyType,
+    xDomain: any,
+    yDomain: any,
+    xTicks: any,
+    xTickFormat: string
 }

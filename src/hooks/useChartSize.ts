@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-export default function useChartSize(svgRef: React.RefObject<SVGSVGElement>) {
+export function useChartSize(svgRef: React.RefObject<SVGSVGElement>) {
     const [width, setWidth] = useState<number>(0)
     const [height, setHeight] = useState<number>(0)
     function computeSVGSize() {
+        console.log("Resize")
         if (svgRef.current) {
             const { width, height } = svgRef.current.getBoundingClientRect()
             setWidth(width)
@@ -17,9 +18,7 @@ export default function useChartSize(svgRef: React.RefObject<SVGSVGElement>) {
             return window.removeEventListener('resize', () => { computeSVGSize() })
         }
     }, [svgRef, svgRef.current])
-    useEffect(() => {
-        console.log({ width, height })
-    }, [width, height])
+
     return {
         width, height
     }

@@ -1,3 +1,4 @@
+import * as d3 from 'd3'
 import { StockAPIType, YFinanceStockDatasetType } from '../types'
 import { weeksTicks } from './datetime'
 export default function CandleStickChartDataset(dataset: StockAPIType) {
@@ -13,13 +14,15 @@ export default function CandleStickChartDataset(dataset: StockAPIType) {
         yMax = Math.max(data.high, yMax)
     })
     const datetimes = history.map((data: YFinanceStockDatasetType) => data.date)
+    const xTickFormat = d3.timeFormat('%Y-%m-%d')
     const xTicks = weeksTicks(datetimes, 4)
-
+    yMin = yMin < 30 ? 0 : yMin - PriceMargin
     return {
         company,
         history,
         xDomain: xDomain,
-        yDomain: [0, yMax + PriceMargin],
-        xTicks: xTicks
+        yDomain: [yMin, yMax + PriceMargin],
+        xTicks: xTicks,
+        xTickFormat
     }
 }
