@@ -12,7 +12,6 @@ export default function XAxis({ scale, height, ticks, tickFormat }: AxisType) {
     const xAxisRef = useRef<SVGGElement>(null)
     useLayoutEffect(() => {
         if (xAxisRef.current && scale && ticks) {
-            console.log(ticks)
             const axisBottom = d3.axisBottom(scale).tickFormat(tickFormat).tickValues(ticks)
             d3.select(xAxisRef.current).call(axisBottom)
         }

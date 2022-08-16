@@ -1,16 +1,16 @@
 import '../styles/ChartContainer.css'
-import React, { useEffect } from 'react'
+import React from 'react'
 
 type ChartContainerType = {
-    title: string
+    fetchStatus?: string
     children: React.ReactNode
 }
 
-export default function ChartContainer({ title, children }: ChartContainerType) {
+export default function ChartContainer({ fetchStatus, children }: ChartContainerType) {
     return (
         <section className="chart-container">
-            <h1 className="chart-title">{title}</h1>
-            {children}
+            {fetchStatus === 'pending' && <div>로딩중입니다.. </div>}
+            {fetchStatus === 'success' && <>{children}</>}
         </section>
     )
 }

@@ -13,14 +13,13 @@ export default function useChartSize(svgRef: React.RefObject<SVGSVGElement>) {
     useEffect(() => {
         if (svgRef.current) {
             computeSVGSize()
-            window.addEventListener('resize', () => {
-                computeSVGSize()
-            })
-            return window.removeEventListener('resize', () => {
-                computeSVGSize()
-            })
+            window.addEventListener('resize', () => { computeSVGSize() })
+            return window.removeEventListener('resize', () => { computeSVGSize() })
         }
-    }, [svgRef])
+    }, [svgRef, svgRef.current])
+    useEffect(() => {
+        console.log({ width, height })
+    }, [width, height])
     return {
         width, height
     }

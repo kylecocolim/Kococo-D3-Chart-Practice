@@ -12,7 +12,6 @@ export default function YAxis({ scale, width, ticks, tickFormat }: AxisType) {
     const yAxisRef = useRef<SVGGElement>(null)
     useEffect(() => {
         if (yAxisRef.current && scale && ticks) {
-            console.log(ticks)
             const axisLeft = d3.axisLeft(scale).tickFormat(tickFormat).ticks(ticks)
             d3.select(yAxisRef.current).call(axisLeft)
         }
