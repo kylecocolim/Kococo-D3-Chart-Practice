@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function useQuery(url: string, payload: any = {}, queryFn: Function | null = null) {
+export function useQuery(url: string, payload: any = {}, queryFn: Function | null = null) {
     const [status, setStatus] = useState<string>('pending')
     const [errMsg, setErrMsg] = useState<string>('')
     const [dataset, setDataset] = useState<any>(null)

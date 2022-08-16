@@ -1,5 +1,5 @@
-import Layout from "./components/Layout";
-import "./styles/App.css";
+import Layout from './components/Layout'
+
 export default function App() {
-  return <Layout>Main App</Layout>;
+    return <Layout>Main App</Layout>
 }

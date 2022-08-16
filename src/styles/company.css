@@ -1,0 +1,14 @@
+.company-info {
+    padding: 1rem;
+}
+.company-info ul {
+    line-height: 20px;
+}
+.company-info .company-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+.company-info .ticker {
+    font-size: 0.9rem;
+}

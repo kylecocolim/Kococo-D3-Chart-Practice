@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
-import { defaultMargin, defaultPadding } from '../types'
+import { defaultMargin, defaultPadding } from '../../types'
 type AxisType = {
     scale: d3.ScaleBand<any> | d3.ScaleLinear<any, any, any> | any
     width: number
@@ -12,7 +12,6 @@ export default function YAxis({ scale, width, ticks, tickFormat }: AxisType) {
     const yAxisRef = useRef<SVGGElement>(null)
     useEffect(() => {
         if (yAxisRef.current && scale && ticks) {
-            console.log(ticks)
             const axisLeft = d3.axisLeft(scale).tickFormat(tickFormat).ticks(ticks)
             d3.select(yAxisRef.current).call(axisLeft)
         }
